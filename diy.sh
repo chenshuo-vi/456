@@ -32,18 +32,17 @@ sed -i 's/luci-app-filetransfer/luci-app-autoreboot/g' include/target.mk
 sed -i '/luci-lib-fs/a \	luci-app-filebrowser \\' include/target.mk
 sed -i '/luci-lib-fs/a \	luci-app-ttyd \\' include/target.mk
 
+sed -i 's/luci-app-upnp//' target/linux/ramips/mt7621/target.mk
+sed -i 's/luci-app-oaf//' target/linux/ramips/mt7621/target.mk
+sed -i 's/luci-app-mwan3helper-chinaroute//' target/linux/ramips/mt7621/target.mk
+sed -i 's/luci-app-eqos-mtk//' target/linux/ramips/Makefile
+sed -i 's/luci-app-turboacc-mtk//' target/linux/ramips/Makefile
+
 #设置定时重启插件
 sed -i 's/3/7/g' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
 sed -i '6s/0/1/' feeds/luci/applications/luci-app-autoreboot/root/etc/config/autoreboot
 
-#删除upnp dropbear turboacc eqos mwan3helper
-#sed -i '/dropbear/d' include/target.mk
-#sed -i '/ipv6helper\ //d' target/linux/ramips/Makefile
-sed -i 's/luci-app-upnp//g' include/target.mk
-sed -i 's/luci-app-oaf//g' include/target.mk
-sed -i 's/luci-app-mwan3helper-chinaroute//g' include/target.mk
-sed -i 's/luci-app-eqos-mtk//g' include/target.mk
-sed -i 's/luci-app-turboacc-mtk//g' include/target.mk
+
 
 #修复日志错误
 #sed -i '/restart/d' feeds/luci/applications/luci-app-autoreboot/root/etc/init.d/autoreboot
